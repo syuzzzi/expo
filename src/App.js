@@ -1,15 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
 import MyButton from './MyButton';
 
 export default function App() {
+  const [addition, setAddition] = useState(0);
+  const [multiple, setMultiple] = useState(1);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <Button title="Button" onPress={() => alert('Click!!')}/>
-      <MyButton />
+      <TextInput 
+      //onChange={event => console.log(event.nativeEvent.text)}
+      onChangeText={text => console.log(text)}
+      style={{borderWidth: 1, padding: 10, fontSize: 20}} />
+      {/*<Text style={{fontSize: 20}}>{addition}</Text>
+      <Text style={{fontSize: 20}}>{multiple}</Text>
+      <MyButton title='addition' onPress={() => setAddition(addition + 2)}/>
+      <MyButton title='multiple' onPress={() => setMultiple(multiple * 2)}/>*/}
     </View>
   );
 }
